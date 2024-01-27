@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 class CharacterViewModel: ObservableObject{
-    
     @Published var characters : [Character] = []
+    @Published var state: ResultState = .isLoading
     var service: ServiceProtocol
     var cancellables = Set<AnyCancellable>()
     
@@ -23,6 +23,7 @@ class CharacterViewModel: ObservableObject{
 
     
     func fetchCharacters(){
+        state = .isLoading
         service.fetchCharacters()
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -30,10 +31,11 @@ class CharacterViewModel: ObservableObject{
                 case .finished:
                     break
                 case .failure(let error):
-                    print(error)
+                    self.state = .failed(error: error)
                 }
             } receiveValue: { [weak self] returnedCharacters in
-                self?.characters = returnedCharacters.data.results
+//                self?.characters = returnedCharacters.data.results
+                self?.state = .loaded(content: returnedCharacters.data.results)
             }
             .store(in: &cancellables)
 

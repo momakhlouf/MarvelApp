@@ -8,7 +8,7 @@
 import Foundation
 import CommonCrypto
 import Combine
-
+#warning("to be clean service")
 protocol ServiceProtocol {
     func fetch <T: Decodable>(type: T.Type , url: URL) -> AnyPublisher<T, APIError>
     func fetchCharacters() -> AnyPublisher<CharacterResponse, APIError>
@@ -79,11 +79,6 @@ class Service: ServiceProtocol{
         
         // do not no why must add key and hash again!
         component?.queryItems = queryItems
-        
-        print(component?.url)
-       // print("\(component?.queryItems)")
-        //print(component?.url)
-        
         return component?.url
     }
     
@@ -92,7 +87,6 @@ class Service: ServiceProtocol{
             return Fail(error: APIError.unknown)
                 .eraseToAnyPublisher()
         }
-        print(createSearchUrl(for: searchTerm))
         return fetch(type: CharacterResponse.self, url: url)
             .mapError { e in
                 print(e)

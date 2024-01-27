@@ -9,8 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject var viewModel: SearchViewModel
-    @FocusState var isFocused: Bool
-    @Environment(\.dismiss) var dismiss
+
     
     init(viewModel: SearchViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -18,39 +17,27 @@ struct SearchView: View {
     
     var body: some View {
         VStack{
-            HStack{
-                HStack{
-                    Image(systemName: "magnifyingglass")
-                        .foregroundStyle(.gray)
-                    TextField("Search...", text: $viewModel.searchText)
-                        .focused($isFocused, equals: true)
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                isFocused = true
+            SearchViewHeader(searchText: $viewModel.searchText)
+            switch viewModel.state {
+            case .isLoading:
+                VStack{
+                Spacer()
+                ProgressView()
+                Spacer()
+                }
+            case .failed(let error):
+                Text(error.localizedDescription)
+            case .loaded(_):
+                if !viewModel.checkNoSearchResult{
+                    ScrollView{
+                        LazyVStack(spacing: 0){
+                            ForEach(viewModel.filteredCharacters){ character in
+                                SearchRowView(character: character)
                             }
                         }
-                }
-                .frame(height: 40)
-                .padding(.horizontal, 5)
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(8)
-                
-                Button("Cancel") {
-                    dismiss()
-                }
-                .foregroundStyle(.redMarvel)
-            }
-            .padding(.horizontal)
-            ScrollView{
-                LazyVStack(spacing: 0){
-                    ForEach(viewModel.filteredCharacters){ character in
-                        SearchRowView(character: character)
                     }
-                }
-                .overlay{
-                    #warning("make a no result view , and handle the network loading")
-                        Text("no ..dataaaa.")
-                            .opacity(viewModel.checkNoSearchResult ? 1 : 0)
+                }else{
+                    EmptyDataView(searchText: $viewModel.searchText)
                 }
             }
         }
@@ -60,3 +47,4 @@ struct SearchView: View {
 #Preview {
     SearchView(viewModel: DependencyProvider.searchViewModel)
 }
+

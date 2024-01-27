@@ -15,29 +15,37 @@ struct CharacterView: View {
     }
     var body: some View {
         NavigationStack{
-            ScrollView{
-                LazyVStack(spacing: 0){
-                    ForEach(viewModel.characters){ character in
-                        CharacterRowView(character: character)
+            switch viewModel.state {
+            case .isLoading:
+                ProgressView()
+            case .failed(let error):
+                ErrorView(error: error){
+                    viewModel.fetchCharacters()
+                }
+            case .loaded(let content):
+                ScrollView{
+                    LazyVStack(spacing: 0){
+                        ForEach(content){ character in
+                            CharacterRowView(character: character)
+                        }
                     }
                 }
-            }
-            .listStyle(.plain)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem(placement: .principal) {
-                    Image(.marvelLogo)
-                        .resizable()
-                        .frame(width: 120, height: 40)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink {
-                        SearchView(viewModel: DependencyProvider.searchViewModel)
-                            .navigationBarBackButtonHidden(true)
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                            .font(.system(size: 20).bold())
-                            .foregroundStyle(.redMarvel)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar{
+                    ToolbarItem(placement: .principal) {
+                        Image(.marvelLogo)
+                            .resizable()
+                            .frame(width: 120, height: 40)
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            SearchView(viewModel: DependencyProvider.searchViewModel)
+                                .navigationBarBackButtonHidden(true)
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                                .font(.system(size: 20).bold())
+                                .foregroundStyle(.redMarvel)
+                        }
                     }
                 }
             }
