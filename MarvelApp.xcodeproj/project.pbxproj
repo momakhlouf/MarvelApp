@@ -26,6 +26,8 @@
 		A8ADACBB2B64E64400DB7338 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACBA2B64E64400DB7338 /* ErrorView.swift */; };
 		A8ADACBF2B64F0A300DB7338 /* SearchViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACBE2B64F0A300DB7338 /* SearchViewHeader.swift */; };
 		A8ADACC12B64F2E100DB7338 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACC02B64F2E100DB7338 /* EmptyDataView.swift */; };
+		A8ADACC32B6519E300DB7338 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACC22B6519E300DB7338 /* Config.swift */; };
+		A8ADACC52B654BBB00DB7338 /* LoadMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		A8ADACBA2B64E64400DB7338 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		A8ADACBE2B64F0A300DB7338 /* SearchViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewHeader.swift; sourceTree = "<group>"; };
 		A8ADACC02B64F2E100DB7338 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
+		A8ADACC22B6519E300DB7338 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 			children = (
 				A8ADAC9F2B6398A000DB7338 /* Service.swift */,
 				A8ADACA12B639BF500DB7338 /* APIError.swift */,
+				A8ADACC22B6519E300DB7338 /* Config.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				A8ADACB82B64E0F100DB7338 /* ResultState.swift */,
 				A8ADACBA2B64E64400DB7338 /* ErrorView.swift */,
 				A8ADACC02B64F2E100DB7338 /* EmptyDataView.swift */,
+				A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -273,10 +279,12 @@
 				A8ADACB72B64610D00DB7338 /* SearchRowView.swift in Sources */,
 				A8ADACB52B6436A700DB7338 /* SearchViewModel.swift in Sources */,
 				A8ADAC9B2B6396FF00DB7338 /* CharacterView.swift in Sources */,
+				A8ADACC32B6519E300DB7338 /* Config.swift in Sources */,
 				A8ADACBB2B64E64400DB7338 /* ErrorView.swift in Sources */,
 				A8ADACBF2B64F0A300DB7338 /* SearchViewHeader.swift in Sources */,
 				A8ADACA92B63E7FB00DB7338 /* ImageView.swift in Sources */,
 				A8ADAC852B63967C00DB7338 /* MarvelAppApp.swift in Sources */,
+				A8ADACC52B654BBB00DB7338 /* LoadMoreView.swift in Sources */,
 				A8ADACA22B639BF500DB7338 /* APIError.swift in Sources */,
 				A8ADACB02B642B1A00DB7338 /* SearchView.swift in Sources */,
 			);

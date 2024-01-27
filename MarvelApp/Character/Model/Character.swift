@@ -46,6 +46,24 @@ struct Thumbnail: Codable {
 enum Extension: String, Codable {
     case gif = "gif"
     case jpg = "jpg"
+    case png = "png"
+    case unknown
+    
+//    var rawValue: String{
+//        switch self {
+//        case .gif:
+//            self = .gif
+//        case .jpg:
+//            self = .jpg
+//        case .png:
+//            self = .png
+//        default :
+//            self = .unknown
+//        }
+//    }
+    
+    
+    
 }
 
 

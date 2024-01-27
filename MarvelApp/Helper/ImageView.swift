@@ -13,6 +13,7 @@ struct ImageView: View {
     let height: CGFloat
     
     var body: some View{
+        // we can use kingfisher or SDWebImage for fetch and caching
         AsyncImage(url: URL(string: urlString)) { image in
             image
                 .resizable()
@@ -25,9 +26,6 @@ struct ImageView: View {
         }
         .frame(maxWidth: width)
         .frame(height: height)
-       // .frame(width: width, height: height)
-       // why I get Invalid frame dimension (negative or non-finite) ?
-
     }
     
 }

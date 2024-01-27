@@ -14,13 +14,13 @@ struct EmptyDataView: View {
             Spacer()
             Image(systemName: "exclamationmark.magnifyingglass")
                 .foregroundStyle(.gray)
-                .font(.system(size: 100, weight: .medium))
+                .font(.system(size: 90, weight: .medium))
             
             Text("No Results for ''\(searchText)'' ")
                 .foregroundStyle(.gray)
-                .font(.title.bold())
+                .font(.title2.bold())
                 .multilineTextAlignment(.center)
-                .padding(.vertical, 5) 
+                .padding()
             Spacer()
         }
     }

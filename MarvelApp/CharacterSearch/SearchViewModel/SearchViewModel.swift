@@ -12,9 +12,13 @@ class SearchViewModel: ObservableObject{
     @Published var filteredCharacters : [Character] = []
     @Published var searchText : String = ""
     @Published var state: ResultState = .isLoading
+    @Published var isLoadMore: Bool = true
+
     var cancellables = Set<AnyCancellable>()
     var service: ServiceProtocol
     
+    let limit = 20
+    var page = 0
     
     init(service: ServiceProtocol){
         self.service = service
@@ -39,7 +43,7 @@ class SearchViewModel: ObservableObject{
             return
         }
       //  state = .isLoading
-        service.fetchCharacters(for: searchText)
+        service.fetchCharacters(for: searchText, page: page, limit: limit)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion{
@@ -48,14 +52,19 @@ class SearchViewModel: ObservableObject{
                 case .failure(let error):
                     self.state = .failed(error: error)
                 }
-            } receiveValue: { [weak self] returnedCharacter in
-                self?.filteredCharacters = returnedCharacter.data.results
-                 
-                self?.state = .loaded(content: returnedCharacter.data.results)
-                
+            } receiveValue: { [weak self] returnedCharacters in
+                for character in returnedCharacters.data.results {
+                    self?.filteredCharacters.append(character)
+                }
+                self?.state = .loaded
+                self?.page += 1
+                self?.isLoadMore = (returnedCharacters.data.offset + returnedCharacters.data.count < returnedCharacters.data.total) ? true : false
             }
             .store(in: &cancellables)
-
+    }
+    
+    func loadMore(){
+        fetchCharacters(for: searchText)
     }
     
     

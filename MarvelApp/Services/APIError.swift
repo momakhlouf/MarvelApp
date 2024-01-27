@@ -7,17 +7,17 @@
 
 import Foundation
 
-enum APIError : Error {
+enum APIError: Error {
     case invalidURL
     case decodingError
     case unknown
 }
 
-extension APIError : LocalizedError {
+extension APIError: LocalizedError {
     var errorDescription: String?{
         switch self {
         case .invalidURL:
-            return ""
+            return "Invalid URL"
         case .decodingError :
             return "Failed to decode the object from the service"
         case .unknown:

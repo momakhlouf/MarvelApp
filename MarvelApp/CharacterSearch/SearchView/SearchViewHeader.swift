@@ -31,6 +31,7 @@ struct SearchViewHeader: View {
             
             Button("Cancel") {
                 dismiss()
+                searchText = ""
             }
             .foregroundStyle(.redMarvel)
         }

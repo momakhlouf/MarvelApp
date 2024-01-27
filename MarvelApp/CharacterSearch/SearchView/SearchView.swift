@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject var viewModel: SearchViewModel
-
-    
     init(viewModel: SearchViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -21,18 +19,28 @@ struct SearchView: View {
             switch viewModel.state {
             case .isLoading:
                 VStack{
-                Spacer()
-                ProgressView()
-                Spacer()
+                    Spacer()
+                    if !viewModel.searchText.isEmpty{
+                        ProgressView()
+                    }
+                    Spacer()
+                    
                 }
             case .failed(let error):
-                Text(error.localizedDescription)
-            case .loaded(_):
+                ErrorView(error: error) {
+                    viewModel.loadMore()
+                }
+            case .loaded:
                 if !viewModel.checkNoSearchResult{
                     ScrollView{
                         LazyVStack(spacing: 0){
                             ForEach(viewModel.filteredCharacters){ character in
                                 SearchRowView(character: character)
+                            }
+                            if viewModel.isLoadMore{
+                                LoadMoreView{
+                                    viewModel.loadMore()
+                                }
                             }
                         }
                     }

@@ -11,6 +11,9 @@ import Combine
 class CharacterViewModel: ObservableObject{
     @Published var characters : [Character] = []
     @Published var state: ResultState = .isLoading
+    @Published var isLoadMore: Bool = true
+    let limit = 20
+    var page = 0
     var service: ServiceProtocol
     var cancellables = Set<AnyCancellable>()
     
@@ -19,12 +22,10 @@ class CharacterViewModel: ObservableObject{
         fetchCharacters()
     }
     
-#warning("pagination")
-
     
     func fetchCharacters(){
-        state = .isLoading
-        service.fetchCharacters()
+      // state = .isLoading
+        service.fetchCharacters(page: page, limit: limit)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion{
@@ -34,10 +35,14 @@ class CharacterViewModel: ObservableObject{
                     self.state = .failed(error: error)
                 }
             } receiveValue: { [weak self] returnedCharacters in
-//                self?.characters = returnedCharacters.data.results
-                self?.state = .loaded(content: returnedCharacters.data.results)
+                for character in returnedCharacters.data.results {
+                    self?.characters.append(character)
+                }
+                self?.state = .loaded
+                self?.page += 1
+               // print("\(self?.characters.count) - \(returnedCharacters.data.offset + returnedCharacters.data.count) - \(returnedCharacters.data.total)")
+                self?.isLoadMore = (returnedCharacters.data.offset + returnedCharacters.data.count < returnedCharacters.data.total) ? true : false
             }
             .store(in: &cancellables)
-
     }
 }

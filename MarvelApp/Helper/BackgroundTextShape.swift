@@ -15,7 +15,6 @@ struct ParallelogramShape: Shape {
             path.addLine(to: CGPoint(x: rect.maxX , y: rect.minY))
             path.addLine(to: CGPoint(x: rect.maxX - horizontalOffset, y: rect.maxY))
             path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
-            
         }
     }
 }
@@ -30,7 +29,6 @@ struct BackgroundTextShape: View {
         }
         .padding()
         .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/.opacity(0.1), radius: 12, x: 0, y: 6)
-       // .background(Color.red)
     }
 }
 
