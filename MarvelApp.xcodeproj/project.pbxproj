@@ -28,6 +28,8 @@
 		A8ADACC12B64F2E100DB7338 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACC02B64F2E100DB7338 /* EmptyDataView.swift */; };
 		A8ADACC32B6519E300DB7338 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACC22B6519E300DB7338 /* Config.swift */; };
 		A8ADACC52B654BBB00DB7338 /* LoadMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */; };
+		A8ADACC92B65B57400DB7338 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8ADACC82B65B57400DB7338 /* LaunchScreen.storyboard */; };
+		A8ADACCB2B65BE6700DB7338 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACCA2B65BE6700DB7338 /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,9 @@
 		A8ADACC02B64F2E100DB7338 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		A8ADACC22B6519E300DB7338 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreView.swift; sourceTree = "<group>"; };
+		A8ADACC62B65B3FE00DB7338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A8ADACC82B65B57400DB7338 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A8ADACCA2B65BE6700DB7338 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,8 @@
 		A8ADAC832B63967C00DB7338 /* MarvelApp */ = {
 			isa = PBXGroup;
 			children = (
+				A8ADACC72B65B4E600DB7338 /* LaunchScreen */,
+				A8ADACC62B65B3FE00DB7338 /* Info.plist */,
 				A8ADACB12B64350300DB7338 /* DependencyProvider */,
 				A8ADACA72B63E7D700DB7338 /* Helper */,
 				A8ADAC9E2B63974800DB7338 /* Services */,
@@ -198,6 +205,15 @@
 			path = DependencyProvider;
 			sourceTree = "<group>";
 		};
+		A8ADACC72B65B4E600DB7338 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADACC82B65B57400DB7338 /* LaunchScreen.storyboard */,
+				A8ADACCA2B65BE6700DB7338 /* LaunchView.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8ADACC92B65B57400DB7338 /* LaunchScreen.storyboard in Resources */,
 				A8ADAC8C2B63967D00DB7338 /* Preview Assets.xcassets in Resources */,
 				A8ADAC892B63967D00DB7338 /* Assets.xcassets in Resources */,
 			);
@@ -269,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8ADACB92B64E0F100DB7338 /* ResultState.swift in Sources */,
+				A8ADACCB2B65BE6700DB7338 /* LaunchView.swift in Sources */,
 				A8ADACA42B63B6AD00DB7338 /* CharacterRowView.swift in Sources */,
 				A8ADAC992B6396DB00DB7338 /* Character.swift in Sources */,
 				A8ADACA62B63BBAA00DB7338 /* BackgroundTextShape.swift in Sources */,
@@ -423,11 +441,12 @@
 				DEVELOPMENT_TEAM = A39WX9UWBY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarvelApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Marvel;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,11 +472,12 @@
 				DEVELOPMENT_TEAM = A39WX9UWBY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarvelApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Marvel;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

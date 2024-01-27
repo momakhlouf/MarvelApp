@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct MarvelAppApp: App {
+    @State private var showLaunchView: Bool = true
     var body: some Scene {
         WindowGroup {
-            CharacterView(viewModel: DependencyProvider.characterViewModel)
+            ZStack{
+                CharacterView(viewModel: DependencyProvider.characterViewModel)
+               
+                ZStack{
+                    if showLaunchView{
+                        LaunchView(showLaunchView: $showLaunchView)
+                            .transition(.move(edge: .leading))
+                    }
+                }
+             //   .zIndex(2)
+            }
         }
     }
 }

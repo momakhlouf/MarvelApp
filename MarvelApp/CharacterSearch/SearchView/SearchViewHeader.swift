@@ -35,7 +35,7 @@ struct SearchViewHeader: View {
             }
             .foregroundStyle(.redMarvel)
         }
-        .padding(.horizontal)
+       // .padding(.horizontal)
     }
 }
 

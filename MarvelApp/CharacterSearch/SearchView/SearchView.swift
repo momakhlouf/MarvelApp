@@ -14,38 +14,45 @@ struct SearchView: View {
     }
     
     var body: some View {
-        VStack{
-            SearchViewHeader(searchText: $viewModel.searchText)
-            switch viewModel.state {
-            case .isLoading:
-                VStack{
-                    Spacer()
-                    if !viewModel.searchText.isEmpty{
-                        ProgressView()
+        NavigationStack {
+            VStack{
+//                SearchViewHeader(searchText: $viewModel.searchText)
+                switch viewModel.state {
+                case .isLoading:
+                    VStack{
+                        Spacer()
+                        if !viewModel.searchText.isEmpty{
+                            ProgressView()
+                        }
+                        Spacer()
+                        
                     }
-                    Spacer()
-                    
-                }
-            case .failed(let error):
-                ErrorView(error: error) {
-                    viewModel.loadMore()
-                }
-            case .loaded:
-                if !viewModel.checkNoSearchResult{
-                    ScrollView{
-                        LazyVStack(spacing: 0){
-                            ForEach(viewModel.filteredCharacters){ character in
-                                SearchRowView(character: character)
-                            }
-                            if viewModel.isLoadMore{
-                                LoadMoreView{
-                                    viewModel.loadMore()
+                case .failed(let error):
+                    ErrorView(error: error) {
+                        viewModel.loadMore()
+                    }
+                case .loaded:
+                    if !viewModel.checkNoSearchResult{
+                        ScrollView{
+                            LazyVStack(spacing: 0){
+                                ForEach(viewModel.filteredCharacters){ character in
+                                    SearchRowView(character: character)
+                                }
+                                if viewModel.isLoadMore{
+                                    LoadMoreView{
+                                        viewModel.loadMore()
+                                    }
                                 }
                             }
                         }
+                    }else{
+                        EmptyDataView(searchText: $viewModel.searchText)
                     }
-                }else{
-                    EmptyDataView(searchText: $viewModel.searchText)
+                }
+            }
+            .toolbar{
+                ToolbarItem(placement: .principal) {
+                    SearchViewHeader(searchText: $viewModel.searchText)
                 }
             }
         }
