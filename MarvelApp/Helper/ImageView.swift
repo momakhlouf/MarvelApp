@@ -13,7 +13,7 @@ struct ImageView: View {
     let height: CGFloat
     
     var body: some View{
-        // we can use kingfisher or SDWebImage for fetch and caching
+        // we can use kingfisher or SDWebImage
         AsyncImage(url: URL(string: urlString)) { image in
             image
                 .resizable()

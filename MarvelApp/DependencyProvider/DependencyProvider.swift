@@ -9,7 +9,7 @@ import Foundation
 
 class DependencyProvider{
     
-   static let baseURL = "https://gateway.marvel.com/v1/public/characters"
+   static let baseURL = "https://gateway.marvel.com"
    static let publicKey = Config.publicKey
    static let privateKey = Config.privateKey
    static let timeStamp = String(Int(Date().timeIntervalSince1970))

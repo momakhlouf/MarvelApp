@@ -10,6 +10,8 @@ import Combine
 
 class CharacterViewModel: ObservableObject{
     @Published var characters : [Character] = []
+    
+
     @Published var state: ResultState = .isLoading
     @Published var isLoadMore: Bool = true
     let limit = 20
@@ -31,8 +33,8 @@ class CharacterViewModel: ObservableObject{
                 switch completion{
                 case .finished:
                     break
-                case .failure(let error):
-                    self.state = .failed(error: error)
+                case .failure(_):
+                    self.state = .failed(error: APIError.unknown)
                 }
             } receiveValue: { [weak self] returnedCharacters in
                 for character in returnedCharacters.data.results {

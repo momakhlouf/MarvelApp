@@ -13,7 +13,7 @@ struct LaunchView: View {
     @State var width: CGFloat = 1
     var body: some View {
         ZStack{
-            Color(.launchBackground)
+            Color(Color.theme.launchBackground)
                 .ignoresSafeArea()
             
             Image("logo")

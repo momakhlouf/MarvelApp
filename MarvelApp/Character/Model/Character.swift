@@ -21,14 +21,14 @@ struct Character: Codable, Identifiable {
     let name, description: String
     let thumbnail: Thumbnail
     let resourceURI: String
-    
+    let urls: [URLElement]
     var image : String{
      //   if thumbnail.path.lowercased().hasPrefix("http"){
         return "\(thumbnail.path.replacingOccurrences(of: "http", with: "https")).\(thumbnail.thumbnailExtension.rawValue)"
     }
     
     static func mockCharacter()-> Character{
-        Character(id: 1011334, name: "3-D Man", description: "", thumbnail: Thumbnail.init(path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: .jpg), resourceURI: "")
+        Character(id: 1011334, name: "3-D Man", description: "", thumbnail: Thumbnail.init(path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: .jpg), resourceURI: "", urls: [])
     }
     
 }
@@ -48,22 +48,17 @@ enum Extension: String, Codable {
     case jpg = "jpg"
     case png = "png"
     case unknown
-    
-//    var rawValue: String{
-//        switch self {
-//        case .gif:
-//            self = .gif
-//        case .jpg:
-//            self = .jpg
-//        case .png:
-//            self = .png
-//        default :
-//            self = .unknown
-//        }
-//    }
-    
-    
-    
+}
+
+struct URLElement: Codable, Hashable{
+    let type: URLType
+    let url: String
+}
+
+enum URLType: String, Codable {
+    case comiclink = "comiclink"
+    case detail = "detail"
+    case wiki = "wiki"
 }
 
 

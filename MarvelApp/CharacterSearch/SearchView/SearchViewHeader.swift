@@ -33,7 +33,7 @@ struct SearchViewHeader: View {
                 dismiss()
                 searchText = ""
             }
-            .foregroundStyle(.redMarvel)
+            .foregroundStyle(Color.theme.customRed)
         }
        // .padding(.horizontal)
     }

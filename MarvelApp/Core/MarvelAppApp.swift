@@ -21,7 +21,6 @@ struct MarvelAppApp: App {
                             .transition(.move(edge: .leading))
                     }
                 }
-             //   .zIndex(2)
             }
         }
     }

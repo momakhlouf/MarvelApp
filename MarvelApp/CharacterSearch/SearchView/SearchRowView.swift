@@ -13,9 +13,11 @@ struct SearchRowView: View {
         HStack{
             ImageView(urlString: character.image, width: 70, height: 70)
             Text(character.name)
-                .font(.subheadline.bold())
+                    .font(.subheadline.bold())
+                    .foregroundStyle(Color.primary)
             Spacer()
         }
+        
     }
 }
 

@@ -30,6 +30,19 @@
 		A8ADACC52B654BBB00DB7338 /* LoadMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */; };
 		A8ADACC92B65B57400DB7338 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8ADACC82B65B57400DB7338 /* LaunchScreen.storyboard */; };
 		A8ADACCB2B65BE6700DB7338 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACCA2B65BE6700DB7338 /* LaunchView.swift */; };
+		A8ADACCE2B66384900DB7338 /* CharacterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACCD2B66384900DB7338 /* CharacterDetailsView.swift */; };
+		A8ADACD02B663F0D00DB7338 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACCF2B663F0D00DB7338 /* BackButton.swift */; };
+		A8ADACD22B66525400DB7338 /* LinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACD12B66525400DB7338 /* LinksView.swift */; };
+		A8ADACD42B66665500DB7338 /* LinkRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACD32B66665500DB7338 /* LinkRowView.swift */; };
+		A8ADACD72B6679D300DB7338 /* CharacterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACD62B6679D300DB7338 /* CharacterSection.swift */; };
+		A8ADACD92B667DF600DB7338 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACD82B667DF600DB7338 /* Sections.swift */; };
+		A8ADACDE2B66B30B00DB7338 /* ComicsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACDD2B66B30B00DB7338 /* ComicsSectionView.swift */; };
+		A8ADACE02B66C60C00DB7338 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACDF2B66C60C00DB7338 /* SectionTitle.swift */; };
+		A8ADACE22B66CF6200DB7338 /* CharacterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACE12B66CF6200DB7338 /* CharacterInfoView.swift */; };
+		A8ADACE42B66D22700DB7338 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACE32B66D22700DB7338 /* GalleryView.swift */; };
+		A8ADACE62B66F8B200DB7338 /* CharacterSectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACE52B66F8B200DB7338 /* CharacterSectionsViewModel.swift */; };
+		A8ADACE82B66FC9C00DB7338 /* SectionColumnView .swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACE72B66FC9C00DB7338 /* SectionColumnView .swift */; };
+		A8ADACED2B671BAE00DB7338 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADACEC2B671BAE00DB7338 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,9 +68,22 @@
 		A8ADACC02B64F2E100DB7338 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		A8ADACC22B6519E300DB7338 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreView.swift; sourceTree = "<group>"; };
-		A8ADACC62B65B3FE00DB7338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A8ADACC62B65B3FE00DB7338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8ADACC82B65B57400DB7338 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8ADACCA2B65BE6700DB7338 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		A8ADACCD2B66384900DB7338 /* CharacterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsView.swift; sourceTree = "<group>"; };
+		A8ADACCF2B663F0D00DB7338 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		A8ADACD12B66525400DB7338 /* LinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksView.swift; sourceTree = "<group>"; };
+		A8ADACD32B66665500DB7338 /* LinkRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRowView.swift; sourceTree = "<group>"; };
+		A8ADACD62B6679D300DB7338 /* CharacterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSection.swift; sourceTree = "<group>"; };
+		A8ADACD82B667DF600DB7338 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
+		A8ADACDD2B66B30B00DB7338 /* ComicsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsSectionView.swift; sourceTree = "<group>"; };
+		A8ADACDF2B66C60C00DB7338 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		A8ADACE12B66CF6200DB7338 /* CharacterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoView.swift; sourceTree = "<group>"; };
+		A8ADACE32B66D22700DB7338 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		A8ADACE52B66F8B200DB7338 /* CharacterSectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSectionsViewModel.swift; sourceTree = "<group>"; };
+		A8ADACE72B66FC9C00DB7338 /* SectionColumnView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionColumnView .swift"; sourceTree = "<group>"; };
+		A8ADACEC2B671BAE00DB7338 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,15 +116,15 @@
 		A8ADAC832B63967C00DB7338 /* MarvelApp */ = {
 			isa = PBXGroup;
 			children = (
-				A8ADACC72B65B4E600DB7338 /* LaunchScreen */,
 				A8ADACC62B65B3FE00DB7338 /* Info.plist */,
+				A8ADACEB2B671A1E00DB7338 /* Core */,
+				A8ADACC72B65B4E600DB7338 /* LaunchScreen */,
 				A8ADACB12B64350300DB7338 /* DependencyProvider */,
 				A8ADACA72B63E7D700DB7338 /* Helper */,
 				A8ADAC9E2B63974800DB7338 /* Services */,
 				A8ADAC942B63968E00DB7338 /* Character */,
 				A8ADAC932B63968900DB7338 /* CharacterSearch */,
-				A8ADAC842B63967C00DB7338 /* MarvelAppApp.swift */,
-				A8ADAC882B63967D00DB7338 /* Assets.xcassets */,
+				A8ADACCC2B6637B900DB7338 /* CharacterDetails */,
 				A8ADAC8A2B63967D00DB7338 /* Preview Content */,
 			);
 			path = MarvelApp;
@@ -107,6 +133,7 @@
 		A8ADAC8A2B63967D00DB7338 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				A8ADAC882B63967D00DB7338 /* Assets.xcassets */,
 				A8ADAC8B2B63967D00DB7338 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -169,12 +196,15 @@
 		A8ADACA72B63E7D700DB7338 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				A8ADACCF2B663F0D00DB7338 /* BackButton.swift */,
 				A8ADACA52B63BBAA00DB7338 /* BackgroundTextShape.swift */,
 				A8ADACA82B63E7FB00DB7338 /* ImageView.swift */,
 				A8ADACB82B64E0F100DB7338 /* ResultState.swift */,
 				A8ADACBA2B64E64400DB7338 /* ErrorView.swift */,
 				A8ADACC02B64F2E100DB7338 /* EmptyDataView.swift */,
 				A8ADACC42B654BBB00DB7338 /* LoadMoreView.swift */,
+				A8ADACD62B6679D300DB7338 /* CharacterSection.swift */,
+				A8ADACEC2B671BAE00DB7338 /* Color.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -212,6 +242,71 @@
 				A8ADACCA2B65BE6700DB7338 /* LaunchView.swift */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		A8ADACCC2B6637B900DB7338 /* CharacterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADACDB2B66B2C200DB7338 /* Model */,
+				A8ADACDC2B66B2C800DB7338 /* ViewModel */,
+				A8ADACDA2B66B2B600DB7338 /* View */,
+			);
+			path = CharacterDetails;
+			sourceTree = "<group>";
+		};
+		A8ADACDA2B66B2B600DB7338 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADACEA2B67191300DB7338 /* SectionsView */,
+				A8ADACE92B67190800DB7338 /* DetailView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A8ADACDB2B66B2C200DB7338 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADACD82B667DF600DB7338 /* Sections.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A8ADACDC2B66B2C800DB7338 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADACE52B66F8B200DB7338 /* CharacterSectionsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A8ADACE92B67190800DB7338 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADACE12B66CF6200DB7338 /* CharacterInfoView.swift */,
+				A8ADACCD2B66384900DB7338 /* CharacterDetailsView.swift */,
+				A8ADACD12B66525400DB7338 /* LinksView.swift */,
+				A8ADACD32B66665500DB7338 /* LinkRowView.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		A8ADACEA2B67191300DB7338 /* SectionsView */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADACDF2B66C60C00DB7338 /* SectionTitle.swift */,
+				A8ADACE32B66D22700DB7338 /* GalleryView.swift */,
+				A8ADACE72B66FC9C00DB7338 /* SectionColumnView .swift */,
+				A8ADACDD2B66B30B00DB7338 /* ComicsSectionView.swift */,
+			);
+			path = SectionsView;
+			sourceTree = "<group>";
+		};
+		A8ADACEB2B671A1E00DB7338 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A8ADAC842B63967C00DB7338 /* MarvelAppApp.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,26 +380,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8ADACE02B66C60C00DB7338 /* SectionTitle.swift in Sources */,
 				A8ADACB92B64E0F100DB7338 /* ResultState.swift in Sources */,
+				A8ADACED2B671BAE00DB7338 /* Color.swift in Sources */,
 				A8ADACCB2B65BE6700DB7338 /* LaunchView.swift in Sources */,
+				A8ADACD02B663F0D00DB7338 /* BackButton.swift in Sources */,
 				A8ADACA42B63B6AD00DB7338 /* CharacterRowView.swift in Sources */,
 				A8ADAC992B6396DB00DB7338 /* Character.swift in Sources */,
 				A8ADACA62B63BBAA00DB7338 /* BackgroundTextShape.swift in Sources */,
+				A8ADACDE2B66B30B00DB7338 /* ComicsSectionView.swift in Sources */,
 				A8ADAC9D2B63971E00DB7338 /* CharacterViewModel.swift in Sources */,
+				A8ADACD92B667DF600DB7338 /* Sections.swift in Sources */,
 				A8ADACB32B64351900DB7338 /* DependencyProvider.swift in Sources */,
+				A8ADACD72B6679D300DB7338 /* CharacterSection.swift in Sources */,
 				A8ADACA02B6398A000DB7338 /* Service.swift in Sources */,
 				A8ADACC12B64F2E100DB7338 /* EmptyDataView.swift in Sources */,
 				A8ADACB72B64610D00DB7338 /* SearchRowView.swift in Sources */,
 				A8ADACB52B6436A700DB7338 /* SearchViewModel.swift in Sources */,
 				A8ADAC9B2B6396FF00DB7338 /* CharacterView.swift in Sources */,
+				A8ADACE82B66FC9C00DB7338 /* SectionColumnView .swift in Sources */,
+				A8ADACD42B66665500DB7338 /* LinkRowView.swift in Sources */,
 				A8ADACC32B6519E300DB7338 /* Config.swift in Sources */,
+				A8ADACE42B66D22700DB7338 /* GalleryView.swift in Sources */,
 				A8ADACBB2B64E64400DB7338 /* ErrorView.swift in Sources */,
 				A8ADACBF2B64F0A300DB7338 /* SearchViewHeader.swift in Sources */,
 				A8ADACA92B63E7FB00DB7338 /* ImageView.swift in Sources */,
 				A8ADAC852B63967C00DB7338 /* MarvelAppApp.swift in Sources */,
+				A8ADACCE2B66384900DB7338 /* CharacterDetailsView.swift in Sources */,
 				A8ADACC52B654BBB00DB7338 /* LoadMoreView.swift in Sources */,
 				A8ADACA22B639BF500DB7338 /* APIError.swift in Sources */,
+				A8ADACE22B66CF6200DB7338 /* CharacterInfoView.swift in Sources */,
+				A8ADACE62B66F8B200DB7338 /* CharacterSectionsViewModel.swift in Sources */,
 				A8ADACB02B642B1A00DB7338 /* SearchView.swift in Sources */,
+				A8ADACD22B66525400DB7338 /* LinksView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,14 @@ struct CharacterView: View {
                 ScrollView{
                     LazyVStack(spacing: 0){
                         ForEach(viewModel.characters){ character in
-                            CharacterRowView(character: character)
+                            NavigationLink {
+                                CharacterDetailsView(character: character)
+                                    .navigationBarBackButtonHidden(true)
+                            } label: {
+                                CharacterRowView(character: character)
+
+                            }
+
                         }
                         if viewModel.isLoadMore{
                             LoadMoreView{
@@ -69,7 +76,7 @@ extension CharacterView{
         } label: {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 20).bold())
-                .foregroundStyle(.redMarvel)
+                .foregroundStyle(Color.theme.customRed)
         }
     }
 }

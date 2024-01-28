@@ -34,7 +34,7 @@ class SearchViewModel: ObservableObject{
             .store(in: &cancellables)
     }
     
-    var checkNoSearchResult: Bool{
+    var noSearchResult: Bool{
         filteredCharacters.isEmpty && !searchText.isEmpty
     }
     
@@ -50,7 +50,7 @@ class SearchViewModel: ObservableObject{
                 case.finished:
                     break
                 case .failure(let error):
-                    self.state = .failed(error: error)
+                    self.state = .failed(error: error as! APIError)
                 }
             } receiveValue: { [weak self] returnedCharacters in
                 for character in returnedCharacters.data.results {

@@ -29,7 +29,7 @@ struct ErrorView: View {
                     .foregroundStyle(.white)
                     .font(.headline.bold())
                     .frame(width: 200 , height: 50)
-                    .background(Color.redMarvel.cornerRadius(12))
+                    .background(Color.theme.customRed.cornerRadius(12))
                     .padding()
                     
             })

@@ -32,11 +32,16 @@ struct SearchView: View {
                         viewModel.loadMore()
                     }
                 case .loaded:
-                    if !viewModel.checkNoSearchResult{
+                    if !viewModel.noSearchResult{
                         ScrollView{
-                            LazyVStack(spacing: 0){
+                            LazyVStack(spacing: 1){
                                 ForEach(viewModel.filteredCharacters){ character in
-                                    SearchRowView(character: character)
+                                    NavigationLink {
+                                        CharacterDetailsView(character: character)
+                                            .navigationBarBackButtonHidden(true)
+                                    } label: {
+                                        SearchRowView(character: character)
+                                    }
                                 }
                                 if viewModel.isLoadMore{
                                     LoadMoreView{
