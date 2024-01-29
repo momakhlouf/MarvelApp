@@ -28,7 +28,7 @@ struct CharacterInfoView: View {
                 }
             }
         }
-        .padding(.bottom, 15)
+        //.padding(.bottom, 15)
     }
 }
 

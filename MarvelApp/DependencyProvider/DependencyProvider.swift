@@ -25,4 +25,8 @@ class DependencyProvider{
     static var searchViewModel: SearchViewModel{
         return SearchViewModel(service: service)
     }
+    
+    static var characterSectionsViewModel: CharacterDetailsViewModel{
+        return CharacterDetailsViewModel(service: service)
+    }
 }

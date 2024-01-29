@@ -23,7 +23,6 @@ struct CharacterView: View {
                 ErrorView(error: error){
                     viewModel.fetchCharacters()
                 }
-                
             case .loaded:
                 ScrollView{
                     LazyVStack(spacing: 0){
@@ -33,9 +32,9 @@ struct CharacterView: View {
                                     .navigationBarBackButtonHidden(true)
                             } label: {
                                 CharacterRowView(character: character)
-
+                                
                             }
-
+                            
                         }
                         if viewModel.isLoadMore{
                             LoadMoreView{
@@ -47,10 +46,10 @@ struct CharacterView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar{
                     ToolbarItem(placement: .principal) {
-                     marvelLogo
+                        marvelLogo
                     }
                     ToolbarItem(placement: .topBarTrailing) {
-                     searchButton
+                        searchButton
                     }
                 }
             }

@@ -61,4 +61,19 @@ enum URLType: String, Codable {
     case wiki = "wiki"
 }
 
+extension Character{
+    static var mockData: [Character] {
+        [
+            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+        ]
+    }
+}
+
+
+
 

@@ -9,6 +9,6 @@ import Foundation
 
 enum ResultState{
     case isLoading
-    case failed(error: APIError)
+    case failed(String)
     case loaded//(content: [Character])
 }

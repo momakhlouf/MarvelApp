@@ -16,7 +16,7 @@ struct LaunchView: View {
             Color(Color.theme.launchBackground)
                 .ignoresSafeArea()
             
-            Image("logo")
+            Image("launchLogo")
                 .resizable()
                 .frame(width: 250, height: 250)
                 .foregroundStyle(.white)

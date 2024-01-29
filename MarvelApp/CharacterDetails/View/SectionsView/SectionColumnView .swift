@@ -8,20 +8,13 @@
 import SwiftUI
 
 struct SectionColumnView: View {
-    let image: String
-    let title: String
+    let section: CharacterDetails
     var body: some View {
-        VStack{
-            ImageView(urlString: image, width: 100, height: 150)
-                .onTapGesture {
-                  //  showFullImage = true
-                }
-//                .fullScreenCover(isPresented: $showFullImage, content: {
-//                    GalleryView(comics: viewModel.comics)
-//                })
-            Text(title)
+        VStack(spacing: 2){
+            ImageView(urlString: section.image, width: 110, height: 160)
+            Text(section.title ?? "")
                 .font(.caption)
-                .frame(width: 90)
+                .frame(width: 100)
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
         }
@@ -29,5 +22,5 @@ struct SectionColumnView: View {
 }
 
 #Preview {
-    SectionColumnView(image: "", title: "")
+    SectionColumnView(section: CharacterDetails.mockCharacterDetails())
 }

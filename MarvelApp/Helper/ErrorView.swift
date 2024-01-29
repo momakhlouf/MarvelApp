@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ErrorView: View {
-    let error : APIError
+    let error : String
     var refresh : () -> ()
     var body: some View {
         // we can use ContentUnavailableView but only in iOS 17.
@@ -17,7 +17,7 @@ struct ErrorView: View {
                 .foregroundStyle(.gray)
                 .font(.system(size: 100, weight: .heavy))
             
-            Text(error.localizedDescription)
+            Text(error)
                 .foregroundStyle(.gray)
                 .font(.system(size: 15))
                 .multilineTextAlignment(.center)
@@ -31,12 +31,11 @@ struct ErrorView: View {
                     .frame(width: 200 , height: 50)
                     .background(Color.theme.customRed.cornerRadius(12))
                     .padding()
-                    
             })
         }
     }
 }
 
 #Preview {
-    ErrorView(error: .decodingError, refresh: {})
+    ErrorView(error: "", refresh: {})
 }

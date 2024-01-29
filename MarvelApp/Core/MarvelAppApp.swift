@@ -14,7 +14,7 @@ struct MarvelAppApp: App {
         WindowGroup {
             ZStack{
                 CharacterView(viewModel: DependencyProvider.characterViewModel)
-               
+                    .preferredColorScheme(.dark)
                 ZStack{
                     if showLaunchView{
                         LaunchView(showLaunchView: $showLaunchView)

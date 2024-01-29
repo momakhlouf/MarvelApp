@@ -7,26 +7,30 @@
 
 import Foundation
 
-struct SectionsResponse: Codable {
+struct CharacterDetailsResponse: Codable {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
     let etag: String
-    let data: SectionsData
+    let data: CharacterDetailsData
 }
 
-struct SectionsData: Codable {
-    let results: [Sections]
+struct CharacterDetailsData: Codable {
+    let results: [CharacterDetails]
 }
 
-struct Sections: Codable, Identifiable {
+struct CharacterDetails: Codable, Identifiable {
     let id: Int
     let title: String?
     let description: String?
     let resourceURI: String?
     let thumbnail: ComicThumbnail
-    let images: [ComicThumbnail]?
+   // let images: [ComicThumbnail]?
     var image: String{
         return "\(thumbnail.path.replacingOccurrences(of: "http", with: "https")).\(thumbnail.thumbnailExtension.rawValue)"
+    }
+    
+    static func mockCharacterDetails()-> CharacterDetails{
+        CharacterDetails(id: 1, title: "", description: "", resourceURI: "", thumbnail: ComicThumbnail(path: "", thumbnailExtension: ComicExtension.jpg))
     }
 }
 

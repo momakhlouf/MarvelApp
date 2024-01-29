@@ -23,8 +23,8 @@ class SearchViewModel: ObservableObject{
     init(service: ServiceProtocol){
         self.service = service
         $searchText
-            .removeDuplicates()
-            .dropFirst()
+            .dropFirst() // because of my search text = "" so drop searching for "" ,
+            .removeDuplicates() // when I tab in textfield, it still "" , so removeDuplicates prevent to fetch ""
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] text in
                 self?.state = .isLoading
@@ -42,15 +42,14 @@ class SearchViewModel: ObservableObject{
         guard !searchText.isEmpty else{
             return
         }
-      //  state = .isLoading
         service.fetchCharacters(for: searchText, page: page, limit: limit)
             .receive(on: DispatchQueue.main)
-            .sink { completion in
+            .sink {[weak self] completion in
                 switch completion{
                 case.finished:
                     break
                 case .failure(let error):
-                    self.state = .failed(error: error as! APIError)
+                    self?.state = .failed(error.localizedDescription )
                 }
             } receiveValue: { [weak self] returnedCharacters in
                 for character in returnedCharacters.data.results {

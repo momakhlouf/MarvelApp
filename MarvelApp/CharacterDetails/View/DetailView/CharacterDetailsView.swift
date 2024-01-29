@@ -17,7 +17,7 @@ struct CharacterDetailsView: View {
                 }
             VStack(alignment: .leading, spacing: 20){
                 CharacterInfoView(character: character)
-                ComicsSectionView(character: character)
+                CharacterSectionsView(viewModel: DependencyProvider.characterSectionsViewModel, character: character)
                 
                 VStack(alignment: .leading, spacing: 5){
                     SectionTitle(title:"RELATED LINKS")

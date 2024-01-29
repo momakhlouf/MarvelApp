@@ -9,43 +9,70 @@ import SwiftUI
 
 struct GalleryView: View {
     @Environment(\.dismiss) var dismiss
-    let comics: [Sections]
+    @State var index = 0
+    let characterDetails: [CharacterDetails]
+    let selectedImageIndex: Int
     
     var body: some View {
         VStack{
-            HStack{
-                Spacer()
-                Image(systemName: "xmark")
-                    .padding(12)
-                    .background{
-                        Color.gray.opacity(0.3)
-                            .cornerRadius(8)
-                    }
-                    .padding(20)
-                    .onTapGesture {
-                        dismiss()
-                    }
-            }
-            ScrollView(.horizontal){
-                HStack{
-                    ForEach(comics){ comic in
-                        VStack(alignment: .center){
-                            AsyncImage(url: URL(string: comic.image)) { image in
-                                image
-                            } placeholder: {
-                                Rectangle()
-                                    .foregroundStyle(.gray.opacity(0.3))
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height - 100)
-                            Text(comic.title ?? "")
+            dismissButton
+            TabView(selection: $index){
+                ForEach(characterDetails.indices, id: \.self) { imageIndex in
+                    VStack{
+                        AsyncImage(url: URL(string:characterDetails[imageIndex].image)) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .aspectRatio(contentMode: .fit)
+                                .padding(30)
+                            
+                        } placeholder: {
+                            Spacer()
+                            ProgressView()
+                            Spacer()
                         }
+                        
+                        Text(characterDetails[imageIndex].title ?? "")
+                            .font(.subheadline)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
+                    }
+                    .tag(imageIndex)
+                    .onAppear {
+                        index = selectedImageIndex
                     }
                 }
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            Text(" \(index + 1) /\(characterDetails.count)")
+                .font(.caption)
+                .foregroundStyle(.gray)
+                .padding()
+            
         }
     }
 }
 
+
 #Preview {
-    GalleryView(comics: [])
+    GalleryView(characterDetails: [], selectedImageIndex: 0)
+}
+
+extension GalleryView{
+    var dismissButton: some View{
+        HStack{
+            Spacer()
+            Image(systemName: "xmark")
+                .padding(12)
+                .background{
+                    Color.gray.opacity(0.3)
+                        .cornerRadius(8)
+                }
+                .padding(20)
+                .onTapGesture {
+                    dismiss()
+                }
+        }
+    }
 }

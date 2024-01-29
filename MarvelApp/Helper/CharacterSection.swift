@@ -8,5 +8,5 @@
 import Foundation
 
 enum CharacterSection{
-    case comics, stories, events, series
+    case comics, events, series
 }

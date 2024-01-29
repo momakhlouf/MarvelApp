@@ -13,14 +13,14 @@ protocol ServiceProtocol {
     func fetch <T: Decodable>(type: T.Type , url: URL) -> AnyPublisher<T, APIError>
     func fetchCharacters(page: Int, limit: Int) -> AnyPublisher<CharacterResponse, APIError>
     func fetchCharacters(for searchTerm: String, page: Int, limit: Int)-> AnyPublisher<CharacterResponse , APIError>
-    func fetchCharacterRelatedImages(for characterID: Int, sectionType: CharacterSection) -> AnyPublisher<SectionsResponse, APIError>
+    func fetchCharacterRelatedImages(for characterID: Int, sectionType: CharacterSection) -> AnyPublisher<CharacterDetailsResponse, APIError>
 }
 class Service: ServiceProtocol{
     private let baseURL: String
     private let publicKey: String
     private let privateKey: String
     private let timeStamp: String
-
+    
     init(baseURL: String, publicKey: String, privateKey: String, timeStamp: String) {
         self.baseURL = baseURL
         self.publicKey = publicKey
@@ -49,16 +49,12 @@ class Service: ServiceProtocol{
             queryItems.append(URLQueryItem(name: "nameStartsWith", value: searchText))
         }
         
-       
+        
         if let sectionType = sectionType{
             switch sectionType {
             case .comics:
                 if let characterID = characterID{
                     components?.path = "/v1/public/characters/\(characterID)/comics"
-                }
-            case .stories:
-                if let characterID = characterID{
-                    components?.path = "/v1/public/characters/\(characterID)/stories"
                 }
             case .events:
                 if let characterID = characterID{
@@ -77,7 +73,6 @@ class Service: ServiceProtocol{
         }
         
         components?.queryItems = queryItems
-        print("what - \(components?.url)")
         return components?.url
         //https: //gateway.marvel.com/v1/public/characters?ts=ts&apikey=apikey&hash=hash&limit=20&offset=0
     }
@@ -87,26 +82,17 @@ class Service: ServiceProtocol{
             .tryMap { (output) -> Data in
                 guard let response = output.response as? HTTPURLResponse,
                       response.statusCode >= 200 && response.statusCode < 300 else{
-                    throw APIError.unknown
+                    throw APIError.unknown //badResponse(response.statusCode)
                 }
                 return output.data
             }
             .decode(type: type.self, decoder: JSONDecoder())
-            .mapError { _ in
-                APIError.decodingError
+            .mapError { error in
+                APIError.decodingError(error as? DecodingError)
             }
             .eraseToAnyPublisher()
     }
-    
-    func fetchCharacterRelatedImages(for characterID: Int, sectionType: CharacterSection) -> AnyPublisher<SectionsResponse, APIError>{
-       
-            let url = createUrl(characterID: characterID ,sectionType: sectionType)!
-            return fetch(type: SectionsResponse.self, url: url)
-    }
-}
-
-//MARK: - Fetch list of all characters
-extension Service{
+    //MARK: - Fetch list of all characters
     func fetchCharacters(page: Int, limit: Int) -> AnyPublisher<CharacterResponse, APIError>{
         guard let url = createUrl(page: page, limit: limit)else{
             return Fail(error: APIError.invalidURL)
@@ -114,19 +100,28 @@ extension Service{
         }
         return fetch(type: CharacterResponse.self, url: url)
     }
-}
-
-//MARK: - search services
-extension Service{
+    //MARK: - search services
     func fetchCharacters(for searchTerm: String, page: Int, limit: Int) -> AnyPublisher<CharacterResponse , APIError> {
         guard let url = createUrl(searchText: searchTerm, page: page, limit: limit)else{
-            return Fail(error: APIError.unknown)
+            return Fail(error: APIError.invalidURL)
                 .eraseToAnyPublisher()
         }
         return fetch(type: CharacterResponse.self, url: url)
             .mapError { _ in
-                return APIError.decodingError
+                return APIError.unknown
             }
             .eraseToAnyPublisher()
+    }
+}
+
+//MARK: - character comics, series and events
+
+extension Service{
+    func fetchCharacterRelatedImages(for characterID: Int, sectionType: CharacterSection) -> AnyPublisher<CharacterDetailsResponse, APIError>{
+        guard let url = createUrl(characterID: characterID ,sectionType: sectionType)else{
+            return Fail(error: APIError.invalidURL)
+                .eraseToAnyPublisher()
+        }
+            return fetch(type: CharacterDetailsResponse.self, url: url)
     }
 }

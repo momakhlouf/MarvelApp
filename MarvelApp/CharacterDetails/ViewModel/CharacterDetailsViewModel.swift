@@ -8,13 +8,18 @@
 import Foundation
 import Combine
 
-class CharacterSectionsViewModel: ObservableObject{
+class CharacterDetailsViewModel: ObservableObject{
     
-    @Published var comics: [Sections] = []
-    @Published var series: [Sections] = []
-    @Published var events: [Sections] = []
+    @Published var comics: [CharacterDetails] = []
+    @Published var series: [CharacterDetails] = []
+    @Published var events: [CharacterDetails] = []
 
-    
+    @Published var state: ResultState = .isLoading
+    @Published var showComicsGallery: Bool = false
+    @Published var showSeriesGallery: Bool = false
+    @Published var showEventsGallery: Bool = false
+
+
     var service: ServiceProtocol
     var cancellables = Set<AnyCancellable>()
 
@@ -30,7 +35,7 @@ class CharacterSectionsViewModel: ObservableObject{
                 case .finished:
                     break
                 case .failure(let error):
-                    print("rrrr \(error.localizedDescription)")
+                    self.state = .failed(error.localizedDescription )
                 }
             } receiveValue: { [weak self] returned in
                 self?.comics = returned.data.results
@@ -46,7 +51,7 @@ class CharacterSectionsViewModel: ObservableObject{
                 case .finished:
                     break
                 case .failure(let error):
-                    print("rrrr \(error.localizedDescription)")
+                    self.state = .failed(error.localizedDescription )
                 }
             } receiveValue: { [weak self] returned in
                 self?.series = returned.data.results
@@ -62,7 +67,7 @@ class CharacterSectionsViewModel: ObservableObject{
                 case .finished:
                     break
                 case .failure(let error):
-                    print("rrrr \(error.localizedDescription)")
+                    self.state = .failed(error.localizedDescription )
                 }
             } receiveValue: { [weak self] returned in
                 self?.events = returned.data.results

@@ -24,17 +24,15 @@ class CharacterViewModel: ObservableObject{
         fetchCharacters()
     }
     
-    
     func fetchCharacters(){
-      // state = .isLoading
         service.fetchCharacters(page: page, limit: limit)
             .receive(on: DispatchQueue.main)
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion{
                 case .finished:
                     break
-                case .failure(_):
-                    self.state = .failed(error: APIError.unknown)
+                case .failure(let error):
+                    self?.state = .failed(error.localizedDescription )
                 }
             } receiveValue: { [weak self] returnedCharacters in
                 for character in returnedCharacters.data.results {
