@@ -8,9 +8,6 @@
 import Foundation
 
 struct CharacterDetailsResponse: Codable {
-    let code: Int
-    let status, copyright, attributionText, attributionHTML: String
-    let etag: String
     let data: CharacterDetailsData
 }
 
@@ -54,3 +51,14 @@ enum ComicExtension: String, Codable {
 }
 
   
+extension CharacterDetails{
+    static var mockData: [CharacterDetails] {
+        [
+            .init(id: 1, title: "Aaron Stack", description: "", resourceURI: "", thumbnail: ComicThumbnail(path: "", thumbnailExtension: .jpg)),
+            .init(id: 2, title: "Aaron Stack", description: "", resourceURI: "", thumbnail: ComicThumbnail(path: "", thumbnailExtension: .jpg)),
+            .init(id: 3, title: "Aaron Stack", description: "", resourceURI: "", thumbnail: ComicThumbnail(path: "", thumbnailExtension: .jpg)),
+            .init(id: 4, title: "Aaron Stack", description: "", resourceURI: "", thumbnail: ComicThumbnail(path: "", thumbnailExtension: .jpg))
+        ]
+    }
+}
+

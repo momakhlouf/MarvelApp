@@ -36,7 +36,7 @@ struct CharacterDetailsView: View {
 }
 
 #Preview {
-    CharacterDetailsView(character: .mockCharacter())
+    CharacterDetailsView(character: Character.mockData.first!)
 }
 
 

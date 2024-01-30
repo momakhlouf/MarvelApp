@@ -33,5 +33,5 @@ struct CharacterInfoView: View {
 }
 
 #Preview {
-    CharacterInfoView(character: Character.mockCharacter())
+    CharacterInfoView(character: Character.mockData.first!)
 }

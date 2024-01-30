@@ -28,6 +28,7 @@ class SearchViewModel: ObservableObject{
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] text in
                 self?.state = .isLoading
+                self?.page = 0
                 self?.filteredCharacters = [] // for removing data if searchText is empty
                 self?.fetchCharacters(for: text)
             }
@@ -65,6 +66,4 @@ class SearchViewModel: ObservableObject{
     func loadMore(){
         fetchCharacters(for: searchText)
     }
-    
-    
 }

@@ -11,6 +11,7 @@ struct LaunchView: View {
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @Binding var showLaunchView: Bool
     @State var width: CGFloat = 1
+    @State var count = 0
     var body: some View {
         ZStack{
             Color(Color.theme.launchBackground)

@@ -18,7 +18,6 @@ struct MarvelAppApp: App {
                 ZStack{
                     if showLaunchView{
                         LaunchView(showLaunchView: $showLaunchView)
-                            .transition(.move(edge: .leading))
                     }
                 }
             }

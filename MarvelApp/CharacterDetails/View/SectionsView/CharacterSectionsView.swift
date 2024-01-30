@@ -30,7 +30,7 @@ struct CharacterSectionsView: View {
 }
 
 #Preview {
-    CharacterSectionsView(viewModel:DependencyProvider.characterSectionsViewModel, character: Character.mockCharacter())
+    CharacterSectionsView(viewModel:DependencyProvider.characterSectionsViewModel, character: Character.mockData.first!)
 }
 
 

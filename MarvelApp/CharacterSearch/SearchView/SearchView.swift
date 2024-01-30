@@ -12,7 +12,6 @@ struct SearchView: View {
     init(viewModel: SearchViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-    
     var body: some View {
         NavigationStack {
             VStack{

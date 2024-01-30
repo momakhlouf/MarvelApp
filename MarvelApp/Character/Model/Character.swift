@@ -16,27 +16,33 @@ struct CharacterData: Codable {
     let results: [Character]
 }
 
-struct Character: Codable, Identifiable {
+struct Character: Codable, Identifiable, Equatable {
     let id: Int
     let name, description: String
     let thumbnail: Thumbnail
     let resourceURI: String
     let urls: [URLElement]
     var image : String{
-     //   if thumbnail.path.lowercased().hasPrefix("http"){
+        //   if thumbnail.path.lowercased().hasPrefix("http"){
         return "\(thumbnail.path.replacingOccurrences(of: "http", with: "https")).\(thumbnail.thumbnailExtension.rawValue)"
     }
     
-    static func mockCharacter()-> Character{
-        Character(id: 1011334, name: "3-D Man", description: "", thumbnail: Thumbnail.init(path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: .jpg), resourceURI: "", urls: [])
+    // for testing func
+    static func == (lhs: Character, rhs: Character) -> Bool {
+        return lhs.id == rhs.id
+        && lhs.name == rhs.name
+        && lhs.description == rhs.description
+        && lhs.resourceURI == rhs.resourceURI
+        && lhs.urls == rhs.urls
+        && lhs.thumbnail == rhs.thumbnail
     }
     
 }
 
-struct Thumbnail: Codable {
+struct Thumbnail: Codable, Equatable {
     let path: String
     let thumbnailExtension: Extension
-
+    
     enum CodingKeys: String, CodingKey {
         case path
         case thumbnailExtension = "extension"
@@ -65,11 +71,10 @@ extension Character{
     static var mockData: [Character] {
         [
             .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
-            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
-            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
-            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
-            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
-            .init(id: 1, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 2, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 3, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 4, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: []),
+            .init(id: 5, name: "Aaron Stack", description: "", thumbnail: Thumbnail(path: "", thumbnailExtension: Extension.jpg), resourceURI: "", urls: [])
         ]
     }
 }

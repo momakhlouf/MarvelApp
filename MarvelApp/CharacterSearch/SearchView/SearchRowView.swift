@@ -22,5 +22,5 @@ struct SearchRowView: View {
 }
 
 #Preview {
-    SearchRowView(character: Character.mockCharacter())
+    SearchRowView(character: Character.mockData.first!)
 }

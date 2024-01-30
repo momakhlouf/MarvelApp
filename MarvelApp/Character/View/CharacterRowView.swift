@@ -26,5 +26,5 @@ struct CharacterRowView: View {
 }
 
 #Preview {
-    CharacterRowView(character: Character.mockCharacter())
+    CharacterRowView(character: Character.mockData.first!)
 }
